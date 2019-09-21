@@ -1,5 +1,6 @@
 # KnowledgeBytes
 ShellHacks 2019 
+
 Open source educational platform to learn anything!
 
 ### Team:
