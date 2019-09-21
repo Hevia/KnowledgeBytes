@@ -18,6 +18,8 @@ def post_search_query(input_string):
 def get_sample_query():
     # For testing
 
+    #{"query" : "user_search_term"}
+
     sample = request.json["query"]
     return json.dumps(sample)
 
