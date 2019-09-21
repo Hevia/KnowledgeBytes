@@ -1,10 +1,11 @@
 # KnowledgeBytes
+ShellHacks 2019 
 Open source educational platform to learn anything!
 
 ### Team:
 * Anthony Hevia
 * Aaron Hadley
-* Komila K
+* Komila Khamidova
 * Dylan Ocha
 
 ### Setup
