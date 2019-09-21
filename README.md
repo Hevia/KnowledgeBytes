@@ -33,3 +33,4 @@ KnowledgeBytes is an open-source educational platform to learn anything!
 * https://pypi.org/project/wolframalpha/
 * https://pypercard.readthedocs.io/en/latest/
 * https://pypercard.readthedocs.io/en/latest/index.html
+* https://docs.aylien.com/textapi/endpoints/?python#summarization
