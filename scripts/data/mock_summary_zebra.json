@@ -1,0 +1,23 @@
+{
+    "title": "Zebra",
+    "science_name": "The scientific name of Zebra is Humberto",
+    "classification": {
+        "Kingdom": "Animalia",
+        "Phylum": "Chordata",
+        "Class": "Mammalia"
+    },
+    "Biological_properties":{
+        "lifespan": "The average lifespan of a Zebra is between 20 to 30 years",
+        "Length": "The average weight of a Zebra is between 83 to 100 inches",
+        "Weight": "The average weight of a Zebra is 520 to 570 pounds"
+    },
+    "summary":[
+        "Zebras (/ˈziːbrə/ ZEE-brə, /ˈzɛbrə/ ZEB-rə)[1] are several species of African equids (horse family) united by their distinctive black-and-white striped coats.",
+        "There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra.",
+        "The plains zebra and the mountain zebra belong to the subgenus Hippotigris, while Grévy's zebra is the sole species of subgenus Dolichohippus.",
+        "The unique stripes of zebras make them one of the animals most familiar to people.",
+        "Grévy's zebra and the mountain zebra are endangered.",
+        "While plains zebras are much more plentiful, one subspecies, the quagga, became extinct in the late 19th century – though there is currently a plan, called the Quagga Project, that aims to breed zebras that are phenotypically similar to the quagga in..."
+    ],
+    "similar": "Similar topics to Zebra might include: aliens, UFOs, Area 51"
+}

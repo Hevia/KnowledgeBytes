@@ -23,7 +23,6 @@ KnowledgeBytes is an open-source educational platform to learn anything!
       * Wikipedia-API
       * wolframalpha
       * Kivy
-      * Pypercard
 
 ### Resources used:
 * https://www.pythonanywhere.com/
@@ -31,6 +30,5 @@ KnowledgeBytes is an open-source educational platform to learn anything!
 * https://aylien.com/text-api/
 * https://pypi.org/project/Wikipedia-API/
 * https://pypi.org/project/wolframalpha/
-* https://pypercard.readthedocs.io/en/latest/
-* https://pypercard.readthedocs.io/en/latest/index.html
 * https://docs.aylien.com/textapi/endpoints/?python#summarization
+* https://medium.com/@salisuwy/build-an-ai-assistant-with-wolfram-alpha-and-wikipedia-in-python-d9bc8ac838fe
