@@ -8,6 +8,9 @@ $(function(){
             ajaxReq(JSON.stringify({ "query": $(this).val()}))
         }
     });
+    $("#searchSubmit").on('click', function (){
+        ajaxReq(JSON.stringify({ "query": $(this).val()}))
+    });
 });
 
 

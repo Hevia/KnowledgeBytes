@@ -10,8 +10,8 @@ history = 'h'
 
 max_query_lengh = 100
 
-with open("local/app_id") as f:
-    wolfram_app_id = f.read().strip()
+#with open("local/app_id") as f:
+#    wolfram_app_id = f.read().strip()
 
 @app.route("/")
 def main():
@@ -24,20 +24,20 @@ def categorize_string(s):
 def process_animal(input_string, options=["ScientificName:SpeciesData", "Taxonomy:SpeciesData", "SpeciesDataPhysicalProperties"]):
 
     # get api key
-    with open("local/app_id") as f:
-        wolfram_app_id = f.read().strip()
+    #with open("local/app_id") as f:
+    #olfram_app_id = f.read().strip()
 
     # build request url
-    url = "http://api.wolframalpha.com/v2/query?appid=" + wolfram_app_id 
+    url = "http://api.wolframalpha.com/v2/query?appid=" + wolfram_app_id
     url += "&input=" + input_string
-    url += "&format=plaintext"   
+    url += "&format=plaintext"
 
     for o in options:
-        url += "&includepodid=" + o 
+        url += "&includepodid=" + o
 
     print(url)
     # do request
-    req = requests.get(url) 
+    req = requests.get(url)
 
     # Initialize xml parsing tools -- this turns the xml file into a tree that we can work with
     dt = minidom.parseString(req.text)
@@ -55,8 +55,8 @@ def process_animal(input_string, options=["ScientificName:SpeciesData", "Taxonom
         if str(pod.getAttribute("title")) == "Scientific name":
             temp = pod.getElementsByTagName("subpod")[0]
             scientific_name = temp.getElementsByTagName("plaintext")[0].firstChild.nodeValue
-            
-            continue 
+
+            continue
 
         # Get Biological Properties
         if str(pod.getAttribute("title")) == "Biological properties":
@@ -82,7 +82,7 @@ def process_animal(input_string, options=["ScientificName:SpeciesData", "Taxonom
             i = 0
             taxstring = temp.getElementsByTagName("plaintext")[0].firstChild.nodeValue
 
-            ts = taxstring.replace('\n', '|').split('|') 
+            ts = taxstring.replace('\n', '|').split('|')
             taxonomy = []
 
             for t in ts:
@@ -90,9 +90,9 @@ def process_animal(input_string, options=["ScientificName:SpeciesData", "Taxonom
                 if i == 1:
                     taxonomy.append(t)
 
-                i = (i+1) % 2 
+                i = (i+1) % 2
 
-    return json.dumps({"scientific name" : scientific_name, "Taxonomy" : taxonomy, "biological properties" : biological_properties})        
+    return json.dumps({"scientific name" : scientific_name, "Taxonomy" : taxonomy, "biological properties" : biological_properties})
 
 @app.route("/search_query", methods=["POST"])
 def post_search_query():
@@ -121,7 +121,7 @@ def get_sample_query():
     return json.dumps(sample)
 
 print()
-print(process_animal("cow"))
+#print(process_animal("cow"))
 
 if __name__ == "__main__":
     app.run()
