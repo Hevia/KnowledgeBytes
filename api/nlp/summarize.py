@@ -1,5 +1,6 @@
 from aylien import summerizedSentences
 from azure_processing import grab_key_phrases
+from wikipedia_processing import create_map
 import json
 
 with open('test_data.json', 'r') as data_file:
