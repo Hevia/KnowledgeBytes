@@ -2,7 +2,7 @@
 
 $(function(){
 
-    $("#searchQuerry").on("keypress", function(key){
+    $("#searchQuery").on("keypress", function(key){
         if (key.which === 13) {
 
             ajaxReq(JSON.stringify({ "query": $(this).val()}))
