@@ -2,6 +2,6 @@ Flask
 Wikipedia-API
 wolframalpha
 Kivy
-pypercard
+aylien-apiclient
 google-cloud-language
 azure
