@@ -1,4 +1,4 @@
-# KnowledgeBytes - ShellHacks 2019 
+# KnowledgeBytes
 KnowledgeBytes is an open-source educational platform to learn anything!
 
 ### Team:
