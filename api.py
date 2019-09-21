@@ -3,6 +3,9 @@ import requests, json
 
 app = Flask(__name__)
 
+with open("local/app_id") as f:
+    wolfram_app_id = f.read().strip()
+
 @app.route("/")
 def main():
     return render_template("index.html")
@@ -11,12 +14,12 @@ def main():
 def post_search_query(input_string):
     return None
 
-@app.route("/sample")
-def get_sample_query(input_string="cats"):
+@app.route("/sample", methods=["POST"])
+def get_sample_query():
     # For testing
-    return None
 
+    sample = request.json["query"]
+    return json.dumps(sample)
 
 if __name__ == "__main__":
     app.run()
-    
