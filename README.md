@@ -9,6 +9,10 @@ Open source educational platform to learn anything!
 
 ### Setup
 
+Clone the repo and install the following packages
+
+                  pip install Flask, ..
+
 ### Dependencies
 * Python 3+
 
