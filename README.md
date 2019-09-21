@@ -15,3 +15,7 @@
       * wolframalpha
 
 ### Resources used:
+* https://cloud.google.com/natural-language/
+* https://aylien.com/text-api/
+* https://pypi.org/project/Wikipedia-API/
+* https://pypi.org/project/wolframalpha/
