@@ -53,7 +53,6 @@ def categorize_string(s):
  
     return None
 
-
 def build_request_url(input_string, options):
     
     url = "http://api.wolframalpha.com/v2/query?appid=" + wolfram_app_id 
@@ -310,7 +309,11 @@ def get_sample_query():
     #{"query" : "user_search_term"}
 
     sample = request.json["query"]
-    return json.dumps(sample)
+
+    with open("scripts/data/mock_summary_zebra.json") as f:
+        sample = json.load(f.read())
+
+    return sample
 
 #print()
 #print(process_animal("cat"))
