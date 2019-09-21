@@ -12,10 +12,6 @@ def summerizedSentences(title, text):
     client = textapi.Client(config["aylienAppID"], config["aylienAppKey"])
     summary = client.Summarize({'title': title, 'text': text, 'sentences_number': n})
 
-    for i in summary['sentences']:
-        print(i)
-        print('\n')
-
     return summary['sentences']
 
 
