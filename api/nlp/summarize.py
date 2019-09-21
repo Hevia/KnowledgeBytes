@@ -22,6 +22,16 @@ def summerize_animals(data):
         for j in animal_summary[i]:
             print(j)
 
+    return animal_summary
 
 
-summerize_animals(create_maps('Shark'))
+def summerize_cities(data):
+    pass
+
+def summerize_planets(data):
+    pass
+
+def summerize_person(data):
+    pass
+
+summerize_animals(create_maps('Saturn'))
