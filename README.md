@@ -31,3 +31,4 @@ KnowledgeBytes is an open-source educational platform to learn anything!
 * https://pypi.org/project/Wikipedia-API/
 * https://pypi.org/project/wolframalpha/
 * https://docs.aylien.com/textapi/endpoints/?python#summarization
+* https://medium.com/@salisuwy/build-an-ai-assistant-with-wolfram-alpha-and-wikipedia-in-python-d9bc8ac838fe
