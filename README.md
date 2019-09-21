@@ -18,13 +18,7 @@ KnowledgeBytes is an open-source educational platform to learn anything!
 ### Dependencies
 * Python 3+
 
-      Python Packages
-      * Flask
-      * Wikipedia-API
-      * wolframalpha
-      * Kivy
-
-### Resources used:
+### Resources dump:
 * https://www.pythonanywhere.com/
 * https://cloud.google.com/natural-language/
 * https://aylien.com/text-api/

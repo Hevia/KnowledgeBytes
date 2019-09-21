@@ -4,5 +4,13 @@ html
 }
 body
 {
-    height: 60%;
+    height: 70%;
+    background-color:#909090;
+}
+
+header{
+    text-align:center;
+    height:20%;
+    color: white;
+    background-color:#3C9D9B;
 }

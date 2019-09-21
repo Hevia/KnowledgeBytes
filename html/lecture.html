@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,14 +11,15 @@
     <script src="../scripts/extensions/popper.min.js"></script>
     <script src="../scripts/extensions/bootstrap.min.js"></script>
     <script src="../scripts/extensions/jquery.min.js"></script>
-    <script src="../scripts/main/index.js"></script>
+    <script src="../scripts/main/global.js"></script>
+    <script src="../scripts/main/lecture.js"></script>
 </head>
-<header style="height:20%"></header>
+<header><img src="imgs/brain.png" height="45" width="45"><h1>Knowledge Bytes</h1></header>
 <body>
     
-    <div class = "container-fluid" style="height:100%">
+    <div class = "container" style="height:100%">
         <div class = "row justify-content-center" style="height:100%" > 
-            <input id = 'searchQuery' class = "col-xs"/>
+            <div id="summary" class="col col-sm" style="background-color:white;"></div>
         </div>
     </div>
 </body>

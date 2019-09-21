@@ -1,7 +1,5 @@
 Flask
 Wikipedia-API
-wolframalpha
 Kivy
 aylien-apiclient
-google-cloud-language
 azure

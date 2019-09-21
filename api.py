@@ -12,8 +12,8 @@ cities = 'c'
 
 max_query_lengh = 100
 
-with open("local/app_id") as f:
-    wolfram_app_id = f.read().strip()
+#with open("local/app_id") as f:
+#    wolfram_app_id = f.read().strip()
 
 @app.route("/")
 def main():
@@ -58,7 +58,7 @@ def build_request_url(input_string, options):
     
     url = "http://api.wolframalpha.com/v2/query?appid=" + wolfram_app_id 
     url += "&input=" + input_string
-    url += "&format=plaintext"   
+    url += "&format=plaintext"
 
     for o in options:
         url += "&includepodid=" + o
@@ -235,7 +235,7 @@ def process_animal(input_string, options=["ScientificName:SpeciesData", "Taxonom
 
     print(url)
     # do request
-    req = requests.get(url) 
+    req = requests.get(url)
 
     # Initialize xml parsing tools -- this turns the xml file into a tree that we can work with
     dt = minidom.parseString(req.text)
@@ -279,7 +279,7 @@ def process_animal(input_string, options=["ScientificName:SpeciesData", "Taxonom
                 if i == 1:
                     taxonomy.append(t.strip())
 
-                i = (i+1) % 2 
+                i = (i+1) % 2
 
             print(taxonomy)            
 
