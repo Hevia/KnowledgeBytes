@@ -6,8 +6,16 @@ with open('test_data.json', 'r') as data_file:
         data = json.load(data_file)
 
 def summerize_animals(data):
-    #aylien_processed = summerizedSentences(data["title"], data["text"]) # Returns key sentences from processed text
-    azure_related_topics = grab_key_phrases(data["text"])
+    animal_summary = {}
+    # Create a summary from Wikipedia
+    animal_summary["summary"] = summerizedSentences(data["title"], data["text"])
+
+    # Grab related topics from the text
+    animal_summary["related"] = grab_key_phrases(data["text"])
+
+    # Grab the scientific name. Given by the Wolfram Alpha API
+    animal_summary["scientific_name"] = None
+    print(animal_summary)
 
 
 
