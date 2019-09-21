@@ -26,6 +26,7 @@ KnowledgeBytes is an open-source educational platform to learn anything!
       * Pypercard
 
 ### Resources used:
+* https://www.pythonanywhere.com/
 * https://cloud.google.com/natural-language/
 * https://aylien.com/text-api/
 * https://pypi.org/project/Wikipedia-API/
