@@ -1,7 +1,5 @@
-# KnowledgeBytes
-ShellHacks 2019 
-
-Open source educational platform to learn anything!
+# KnowledgeBytes - ShellHacks 2019 
+KnowledgeBytes is an open-source educational platform to learn anything!
 
 ### Team:
 * Anthony Hevia
