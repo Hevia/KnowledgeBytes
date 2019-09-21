@@ -1,0 +1,7 @@
+Flask
+Wikipedia-API
+wolframalpha
+Kivy
+pypercard
+google-cloud-language
+azure
