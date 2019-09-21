@@ -30,13 +30,13 @@ def create_maps(search_term, language='en'):
         hash_summaries = {}
         hash_summaries['summary'] = []
         hash_summaries['summary'].append(wiki_page.summary)
+        hash_summaries['text'] = []
         hash_summaries['title'] = wiki_page.title
 
-        grab_sections(wiki_page.sections, hash_summaries['summary'])
-        hash_summaries['summary'] = ''.join(hash_summaries['summary'] )
-                
+        grab_sections(wiki_page.sections, hash_summaries['text'])
+        hash_summaries['text'] = ''.join(hash_summaries['text'])
+
         return hash_summaries
     else:
         return -1
 
-create_maps('Shark')
