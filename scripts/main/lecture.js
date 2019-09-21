@@ -1,20 +1,26 @@
 // Generate the summary data based on the results from the API
 
 $(function (){
-    ajaxReq(query);
+    var result;
+    ajaxReq(query).done(function(data){
+        result = JSON.parse(data);
+        console.log(result);
+    })
+    $("#summary").html(scrapeResults(result));
 });
 
-function scrapeResults(scrape)
-{
-    var results = [];
-    for (key in scrape)
-    {
-        if(scrape.hasOwnProperty(key))
-        {
-            results += "<p>"+ key + ": " + scrape[key] + "</p>";
-        }
+ function scrapeResults(scrape)
+ {
+    
+ var results = "";
+ for (key in scrape)
+ {
+ if(scrape.hasOwnProperty(key))
+ {
+ results += "<p>"+ key + ": " + scrape[key] + "</p>";
     }
-    return results;
+}
+return results;
 }
 
 function test(){

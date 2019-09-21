@@ -104,7 +104,7 @@ def get_sample_query():
 
     sample = request.json["query"]
 
-    with open("scripts/data/mock_summary_zebra.json") as f:
+    with open("scripts/data/mock_summary_zebra.json", 'r', encoding='UTF8') as f:
         sample = json.load(f.read())
 
     return sample
