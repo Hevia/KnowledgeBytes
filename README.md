@@ -9,9 +9,11 @@ Open source educational platform to learn anything!
 
 ### Setup
 
-Clone the repo and install the following packages
+* Clone the repo
+* Navigate to the directory and create a python 3 virtual environment and activate it
+* Install the required Python packages using the following command:
 
-                  pip install Flask, ..
+                  pip install -r requirements.txt
 
 ### Dependencies
 * Python 3+
