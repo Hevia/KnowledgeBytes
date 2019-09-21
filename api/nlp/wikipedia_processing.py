@@ -40,5 +40,3 @@ def create_maps(search_term, language='en', n=2):
     else:
         hash_summaries['exists'] = False
         return hash_summaries
-
-
