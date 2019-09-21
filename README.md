@@ -13,7 +13,7 @@ KnowledgeBytes is an open-source educational platform to learn anything!
 * Navigate to the directory and create a python 3 virtual environment and activate it
 * Install the required Python packages using the following command:
 
-                  pip install -r requirements.txt
+                  pip3 install -r requirements.txt
 
 ### Dependencies
 * Python 3+
