@@ -6,6 +6,8 @@
 * Komila K
 * Dylan Ocha
 
-
+### Dependencies
+* Python 3+
+* Flask
 
 ### Resources used:
