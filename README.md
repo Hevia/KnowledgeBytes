@@ -9,7 +9,7 @@
 ### Dependencies
 * Python 3+
 
-      #### Python Packages
+      Python Packages
       * Flask
       * Wikipedia-API
       * wolframalpha
