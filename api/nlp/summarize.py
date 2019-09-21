@@ -6,7 +6,7 @@ import json
 with open('test_data.json', 'r') as data_file:
         data = json.load(data_file)
 
-def summerize_animals(wiki_data, wolfram_data):
+def summerize_animals(wiki_data, wolfram_data, language="en"):
     animal_summary = {}
 
     # Organize and grab the Wikipedia data
@@ -24,13 +24,21 @@ def summerize_animals(wiki_data, wolfram_data):
     return animal_summary
 
 
-def summerize_cities(wiki_data, wolfram_data):
-    pass
+def summerize_cities(wiki_data, wolfram_data, language="en"):
+    city_summary = {}
 
-def summerize_planets(wiki_data, wolfram_data):
-    pass
 
-def summerize_person(wiki_data, wolfram_data):
-    pass
 
-summerize_animals(create_maps('Saturn'))
+    return city_summary
+
+def summerize_planets(wiki_data, wolfram_data, language="en"):
+    planet_summary = {}
+
+    return planet_summary
+
+def summerize_person(wiki_data, wolfram_data, language="en"):
+    person_summary = {}
+
+    return person_summary
+
+summerize_animals(create_maps('Shark'))
