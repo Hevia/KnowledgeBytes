@@ -6,6 +6,8 @@
 * Komila K
 * Dylan Ocha
 
+### Setup
+
 ### Dependencies
 * Python 3+
 
