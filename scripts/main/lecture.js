@@ -1,7 +1,7 @@
 // Generate the summary data based on the results from the API
 
 $(function (){
-test();
+    ajaxReq(query);
 });
 
 function scrapeResults(scrape)
