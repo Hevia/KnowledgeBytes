@@ -8,6 +8,10 @@
 
 ### Dependencies
 * Python 3+
+
+#### Python Packages
 * Flask
+* Wikipedia-API
+* wolframalpha
 
 ### Resources used:
