@@ -33,13 +33,12 @@ def main():
     return render_template("index.html")
 
 def string_from_image(url_input):
-    print("here")
+    print(url_input)
     predictor = CustomVisionPredictionClient("89144960aa5c4fe695644634636d68de", endpoint="https://eastus.api.cognitive.microsoft.com/")
 
-    image_response = requests.get(url_input, stream=True).raw
-   
-    results = predictor.classify_image_url(config["project_id"], "version0.2", url_input)
+    #image_response = requests.get(url_input, stream=True).raw
 
+    results = predictor.classify_image_url(config["project_id"], "version0.2", url_input)
     prediction = results.predictions[0]
     print(prediction)
 
@@ -81,7 +80,7 @@ def categorize_string(s):
 @app.route("/search_query", methods=["POST"])
 def post_search_query():
 
-    input_string = request.json["query"]
+    input_string = "https://upload.wikimedia.org/wikipedia/commons/7/71/2010-kodiak-bear-1.jpg"
 
     # check if string is url
     if re.search("(?:http\:|https\:)?\/\/.*\.(?:png|jpg)", input_string):
@@ -89,7 +88,7 @@ def post_search_query():
 
     # validate input
     if not input_string or len(input_string) > max_query_lengh:
-        return(json.encoder({"success" : False, "message" : "query length too long"}))
+        return(json.dumps({"success" : False, "message" : "query length too long"}))
 
     # get category
     category = categorize_string(input_string)
@@ -136,6 +135,6 @@ def get_sample_query():
 
     return sample
 
-
+post_search_query()
 if __name__ == "__main__":
     app.run()
