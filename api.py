@@ -24,8 +24,8 @@ max_query_lengh = 100
 with open("configs.json") as conf:
     config = json.load(conf)
 
-wolfram_app_id = config["wolfram_id"] 
-azure_cv_key = config["cv_id"] 
+wolfram_app_id = config["wolfram_id"]
+azure_cv_key = config["cv_id"]
 #print(azure_cv_key)
 
 @app.route("/")
@@ -46,7 +46,7 @@ def string_from_image(url_input):
     results = predictor.classify_image(config["project_id"], "version0.2", image)
 
     top_predictions = results.predictions[0]
-    return prediction.tag_name   
+    return prediction.tag_name
 
 def categorize_string(s):
 
@@ -84,9 +84,9 @@ def categorize_string(s):
 @app.route("/search_query", methods=["POST"])
 def post_search_query():
 
-    #input_string = request.json["query"]
+    input_string = request.json["query"]
     #input_string = "http://www.pets4homes.co.uk/images/breeds/10/large/c231b08a94097d24fb0577b5bcff1d74.jpg"
-    input_string = "shark"
+    #input_string = "shark"
 
     # check if string is url
     if re.search("(?:http\:|https\:)?\/\/.*\.(?:png|jpg)", input_string):
@@ -119,12 +119,12 @@ def post_search_query():
         summary = anthony.summarize_cities(wiki_data, wolfram_data)
 
     else:
-        return json.encoder({"success" : False, "message" : "could not find category"})
+        return json.dumps({"success" : False, "message" : "could not find category"})
 
     if not summary["success"]:
-        return json.encoder({"success" : False, "message" : "failure in summarize"} )
+        return json.dumps({"success" : False, "message" : "failure in summarize"} )
 
-    return json.encoder(summary)
+    return json.dumps(summary)
 
 @app.route("/sample", methods=["POST"])
 def get_sample_query():
@@ -139,7 +139,6 @@ def get_sample_query():
 
     return sample
 
-post_search_query()
 
 if __name__ == "__main__":
     app.run()
