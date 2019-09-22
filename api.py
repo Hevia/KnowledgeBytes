@@ -124,7 +124,7 @@ def post_search_query():
     if not summary["success"]:
         return json.encoder({"success" : False, "message" : "failure in summarize"} )
 
-    return summary
+    return json.encoder(summary)
 
 @app.route("/sample", methods=["POST"])
 def get_sample_query():
