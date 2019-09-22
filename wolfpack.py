@@ -1,8 +1,11 @@
 import xml.dom.minidom as minidom
 import requests, json
 
-with open("api/local/app_id") as f:
-    wolfram_app_id = f.read().strip()
+with open("configs.json") as conf:
+    config = json.load(conf)
+
+wolfram_app_id = config["wolfram_id"]
+
 
 def build_request_url(input_string, options):
     
@@ -13,7 +16,7 @@ def build_request_url(input_string, options):
     for o in options:
         url += "&includepodid=" + o
 
-    return url    
+    return url 
 
 def table_to_dict(table_as_string):
     table_as_dict = {}

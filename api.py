@@ -5,6 +5,8 @@ import sys
 import summarize as anthony
 import wikipedia_processing as komila
 import wolfpack as aaron
+import re
+from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 
 app = Flask(__name__)
 
@@ -16,12 +18,25 @@ cities = 'c'
 
 max_query_lengh = 100
 
-with open("api/local/app_id") as f:
-    wolfram_app_id = f.read().strip()
+with open("configs.json") as conf:
+    config = json.load(conf)
+
+wolfram_app_id = config["wolfram_id"]
+azure_cv_key = config["cv_id"]
 
 @app.route("/")
 def main():
     return render_template("index.html")
+
+def string_from_image(url_input):
+    predictor = CustomVisionPredictionClient(prediction_key, endpoint="https://eastus.api.cognitive.microsoft.com/")
+
+    with open(url_input, "rb") as image_contents:
+        results = predictor.classify_image(project.id, publish_iteration_name, image_contents.read())
+
+    top_predictions = results.predictions[0]
+    return prediction.tag_name   
+
 
 def categorize_string(s):
    
@@ -61,6 +76,12 @@ def post_search_query():
 
     #input_string = request.json["query"]
     input_string = "bear"
+
+    # check if string is url
+    if re.search("(?:http\:|https\:)?\/\/.*\.(?:png|jpg)", input_string):
+        # handle image url
+        print("true")
+        return {}
 
     # validate input
     if not input_string or len(input_string) > max_query_lengh:
