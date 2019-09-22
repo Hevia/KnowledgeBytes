@@ -34,7 +34,7 @@ def main():
 
 def string_from_image(url_input):
     print("here")
-    predictor = CustomVisionPredictionClient("89144960aa5c4fe695644634636d68de", endpoint="https://eastus.api.cognitive.microsoft.com/")
+    predictor = CustomVisionPredictionClient(config["cv_id"], endpoint="https://eastus.api.cognitive.microsoft.com/")
 
     image_response = requests.get(url_input, stream=True).raw
    
@@ -81,8 +81,7 @@ def categorize_string(s):
 @app.route("/search_query", methods=["POST"])
 def post_search_query():
 
-    input_string = request.json["query"]
-
+    input_string = "https://upload.wikimedia.org/wikipedia/commons/7/71/2010-kodiak-bear-1.jpg"
     # check if string is url
     if re.search("(?:http\:|https\:)?\/\/.*\.(?:png|jpg)", input_string):
         input_string = string_from_image(input_string)
@@ -136,6 +135,6 @@ def get_sample_query():
 
     return sample
 
-
+post_search_query()
 if __name__ == "__main__":
     app.run()
