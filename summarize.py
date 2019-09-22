@@ -64,7 +64,7 @@ def summerize_cities(wiki_data, wolfram_data, language="en"):
         pass
 
    
-
+    city_summary["success"] = True
     return city_summary
 
 def summarize_planets(wiki_data, wolfram_data, language="en"):
@@ -91,14 +91,14 @@ def summarize_planets(wiki_data, wolfram_data, language="en"):
 
 
     
-
+    planet_summary["success"] = True
     return planet_summary
 
 def summarize_person(wiki_data, wolfram_data, language="en"):
     person_summary = {}
 
     if not wolfram_data:
-        person_summary["basic information"] = None
+        person_summary["basic information"] = wolfram_data["image url"] if checkKey(wolfram_data, "image url") else ""
         pass
     else:
         #city_summary["wolfram-success"] = False
