@@ -37,13 +37,19 @@ def summarize_animals(wiki_data, wolfram_data, language="en"):
         #animal_summary['wiki-success'] = False
         pass
     
-    
-
+    animal_summary["success"] = True
     return animal_summary
 
 
 def summerize_cities(wiki_data, wolfram_data, language="en"):
     city_summary = {}
+
+    if not wolfram_data:
+        #city_summary["wolfram-success"] = True
+        pass
+    else:
+        #city_summary["wolfram-success"] = False
+        pass
 
     # Organize and grab the Wikipedia data + making sure the wikipedia data exists
     if wiki_data['exists']:
@@ -57,22 +63,58 @@ def summerize_cities(wiki_data, wolfram_data, language="en"):
         #city_summary['wiki-success'] = False
         pass
 
-    if not wolfram_data:
-        #city_summary["wolfram-success"] = True
-        pass
-    else:
-        #city_summary["wolfram-success"] = False
-        pass
+   
 
     return city_summary
 
 def summarize_planets(wiki_data, wolfram_data, language="en"):
     planet_summary = {}
 
+    if wiki_data['exists']:
+        planet_summary['title'] = wiki_data['title']
+        planet_summary["summary"] = summerizedSentences(wiki_data["title"], wiki_data["summary"])
+        planet_summary['text'] = summerizedSentences(wiki_data["title"], wiki_data["text"])
+        planet_summary["related"] = grab_key_phrases(wiki_data["summary"])
+        #planet_summary['wiki-url'] = wiki_data['wiki-url']
+        #planet_summary['wiki-success'] = True
+    else:
+        #planet_summary['wiki-success'] = False
+        pass
+
+    if not wolfram_data:
+        planet_summary["image url"] = wolfram_data["image url"] if checkKey(wolfram_data, "image url") else ""
+        planet_summary["atmospheric data"] = wolfram_data["atmospheric data"] if checkKey(wolfram_data, "atmospheric data") else ""
+        pass
+    else:
+        #city_summary["wolfram-success"] = False
+        pass
+
+
+    
+
     return planet_summary
 
 def summarize_person(wiki_data, wolfram_data, language="en"):
     person_summary = {}
+
+    if not wolfram_data:
+        person_summary["basic information"] = None
+        pass
+    else:
+        #city_summary["wolfram-success"] = False
+        pass
+
+
+    if wiki_data['exists']:
+        person_summary['title'] = wiki_data['title']
+        person_summary["summary"] = summerizedSentences(wiki_data["title"], wiki_data["summary"])
+        person_summary['text'] = summerizedSentences(wiki_data["title"], wiki_data["text"])
+        person_summary["related"] = grab_key_phrases(wiki_data["summary"])
+        #person_summary['wiki-url'] = wiki_data['wiki-url']
+        #person_summary['wiki-success'] = True
+    else:
+        #person_summary['wiki-success'] = False
+        pass
 
     return person_summary
 
