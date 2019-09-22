@@ -3,9 +3,11 @@ import xml.dom.minidom as minidom
 from flask_cors import CORS
 import requests, json
 import sys
+import io
 import summarize as anthony
 import wikipedia_processing as komila
 import wolfpack as aaron
+from PIL import Image
 import re
 from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 
@@ -22,22 +24,29 @@ max_query_lengh = 100
 with open("configs.json") as conf:
     config = json.load(conf)
 
-wolfram_app_id = config["wolfram_id"]
-azure_cv_key = config["cv_id"]
+wolfram_app_id = config["wolfram_id"] 
+azure_cv_key = config["cv_id"] 
+#print(azure_cv_key)
 
 @app.route("/")
 def main():
     return render_template("index.html")
 
 def string_from_image(url_input):
-    predictor = CustomVisionPredictionClient(prediction_key, endpoint="https://eastus.api.cognitive.microsoft.com/")
+    predictor = CustomVisionPredictionClient(azure_cv_key, endpoint="https://eastus.api.cognitive.microsoft.com/")
 
-    with open(url_input, "rb") as image_contents:
-        results = predictor.classify_image(project.id, publish_iteration_name, image_contents.read())
+    image_response = requests.get(url_input, stream=True).raw
+    image = Image.open(image_response)
+
+    buf = io.BytesIO()
+    image.save(buf, format='JPEG')
+    image = buf.getvalue()
+
+    #print(config["project_id"])
+    results = predictor.classify_image(config["project_id"], "version0.2", image)
 
     top_predictions = results.predictions[0]
     return prediction.tag_name   
-
 
 def categorize_string(s):
 
@@ -76,13 +85,12 @@ def categorize_string(s):
 def post_search_query():
 
     #input_string = request.json["query"]
-    input_string = "bear"
+    #input_string = "http://www.pets4homes.co.uk/images/breeds/10/large/c231b08a94097d24fb0577b5bcff1d74.jpg"
+    input_string = "shark"
 
     # check if string is url
     if re.search("(?:http\:|https\:)?\/\/.*\.(?:png|jpg)", input_string):
-        # handle image url
-        #print("true")
-        return {}
+        input_string = string_from_image(input_string)
 
     # validate input
     if not input_string or len(input_string) > max_query_lengh:
@@ -103,8 +111,8 @@ def post_search_query():
         summary = anthony.summarize_person(wiki_data, wolfram_data)
 
     elif category == planet:
-        wolfram_data = aaron.process_planets(input_string)
-        summary = anthony.summarize_planet(wiki_data, wolfram_data)
+        wolfram_data = aaron.process_planet(input_string)
+        summary = anthony.summarize_planets(wiki_data, wolfram_data)
 
     elif category == cities:
         wolfram_data = aaron.process_cities(input_string)
