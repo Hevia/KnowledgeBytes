@@ -20,7 +20,7 @@ def summarize_animals(wiki_data, wolfram_data, language="en"):
         animal_summary["image url"] = wolfram_data["image url"] if checkKey(wolfram_data, "image url") else ""
         animal_summary["scientific_name"] = wolfram_data["scientific name"] if checkKey(wolfram_data, "scientific name") else ""
         animal_summary["taxonomy"] = wolfram_data["Taxonomy"] if checkKey(wolfram_data, "Taxonomy") else ""
-        animal_summary["lifespan"] = f"The average lifespan is {wolfram_data[bio_prop][lifespan]}"  if checkKey(wolfram_data, "biological properties") else ""
+        #animal_summary["lifespan"] = f"The average lifespan is {wolfram_data[bio_prop][lifespan]}"  if checkKey(wolfram_data, "biological properties") else ""
     else:
         #animal_summary["wolfram-success"] = False
         pass
@@ -36,6 +36,7 @@ def summarize_animals(wiki_data, wolfram_data, language="en"):
     else:
         #animal_summary['wiki-success'] = False
         pass
+    
     
 
     return animal_summary
