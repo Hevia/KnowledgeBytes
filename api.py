@@ -24,8 +24,8 @@ max_query_lengh = 100
 with open("configs.json") as conf:
     config = json.load(conf)
 
-wolfram_app_id = config["wolfram_id"] 
-azure_cv_key = config["cv_id"] 
+wolfram_app_id = config["wolfram_id"]
+azure_cv_key = config["cv_id"]
 #print(azure_cv_key)
 
 @app.route("/")
@@ -136,7 +136,6 @@ def get_sample_query():
 
     return sample
 
-post_search_query()
 
 if __name__ == "__main__":
     app.run()

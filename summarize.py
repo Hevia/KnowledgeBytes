@@ -13,7 +13,7 @@ def summarize_animals(wiki_data, wolfram_data, language="en"):
     animal_summary = {}
 
     # Grab the scientific name. Given by the Wolfram Alpha API
-    if not wolfram_data:
+    if  wolfram_data:
         bio_prop = "biological properties"
         lifespan = "lifespan"
         #animal_summary["wolfram-success"] = True
@@ -38,6 +38,7 @@ def summarize_animals(wiki_data, wolfram_data, language="en"):
         pass
     
     animal_summary["success"] = True
+    print(animal_summary)
     return animal_summary
 
 
@@ -56,7 +57,7 @@ def summerize_cities(wiki_data, wolfram_data, language="en"):
         #city_summary['wiki-success'] = False
         pass
 
-    if not wolfram_data:
+    if  wolfram_data:
         city_summary["nickname"] = wolfram_data["nickname"] if checkKey(wolfram_data, "nickname") else ""
         pass
     else:
@@ -83,7 +84,7 @@ def summarize_planets(wiki_data, wolfram_data, language="en"):
         #planet_summary['wiki-success'] = False
         pass
 
-    if not wolfram_data:
+    if  wolfram_data:
         planet_summary["image url"] = wolfram_data["image url"] if checkKey(wolfram_data, "image url") else ""
         planet_summary["atmospheric data"] = wolfram_data["atmospheric data"] if checkKey(wolfram_data, "atmospheric data") else ""
         pass
@@ -99,7 +100,7 @@ def summarize_planets(wiki_data, wolfram_data, language="en"):
 def summarize_person(wiki_data, wolfram_data, language="en"):
     person_summary = {}
 
-    if not wolfram_data:
+    if  wolfram_data:
         person_summary["basic information"] = wolfram_data["image url"] if checkKey(wolfram_data, "image url") else ""
         person_summary["facts"] = wolfram_data["facts"] if checkKey(wolfram_data, "facts") else ""
         pass

@@ -1,26 +1,27 @@
 // Homepage for KnowledgeBytes
 
 $(function(){
-    var result, summary;
-    $("#searchQuery").on("keyup ", function(key){
+    var result={}, summary;
+    $("#searchQuery").on("keypress ", function(key){
         if (key.which === 13) {
-            ajaxReq(JSON.stringify({ "query": $(this).val()})).done(function(data){
+            ajaxReq(JSON.stringify({ "query":$(this).val()})).done(function(data){
                 result = data;
-                })
+                console.log(result)
                 summary = scrapeResults(result);   
-                console.log(summary);
-                $("#summary").html(summary);
-        }
+            console.log(summary);
+            $("#summary").html(summary);        
+        })
+    }
     });
 
     $("#searchSubmit").on('click', function (){
         ajaxReq(JSON.stringify({ "query": $(this).val()})).done(function(data){
             result = data;
-            })
+            console.log(result)
             summary = scrapeResults(result);   
             console.log(summary);
             $("#summary").html(summary);
-
+            })
         });
     });
 
@@ -31,19 +32,19 @@ function ajaxReq(data) {
         contentType: 'application/json; charset=UTF-8',
         type: "POST",
         data: data,
-        dataType: 'json'
     });
 }
 
 function scrapeResults(scrape)
 {
    
-var results = "";
-for (prop in scrape)
+var scraped = JSON.parse(scrape);
+var results;
+for (prop in scraped)
 {
-    if(scrape.hasOwnProperty(prop) && scrape[prop])
-        results += "<p>"+prop +": " +  scrape[prop] + "</p>";  
-}``
+    if(scraped.hasOwnProperty(prop))
+        results += "<p>"+prop +": " +  scraped[prop] + "</p>";  
+}
 return results;
 }
 
