@@ -15,6 +15,9 @@ KnowledgeBytes is an open-source educational platform to learn anything!
 
                   pip install -r requirements.txt
 
+* Add a file called config.json and add the appropriate API keys for the services you want to use
+* Go ahead and run api.py! You can start by changing the input_string variable to your search term of your choice.
+
 ### Dependencies
 * Python 3+
 
