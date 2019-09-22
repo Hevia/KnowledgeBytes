@@ -81,7 +81,7 @@ def post_search_query():
     # check if string is url
     if re.search("(?:http\:|https\:)?\/\/.*\.(?:png|jpg)", input_string):
         # handle image url
-        print("true")
+        #print("true")
         return {}
 
     # validate input

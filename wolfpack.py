@@ -23,7 +23,7 @@ def table_to_dict(table_as_string):
 
     i = 0
     ps = table_as_string.replace('\n', '|').split('|')
-    print(ps)
+    #print(ps)
 
     while i < len(ps) - 1:
         table_as_dict[ps[i].strip()] = ps[i+1].strip()
@@ -141,7 +141,7 @@ def process_person(input_string, options=["BasicInformation:PeopleData", "Image:
     dt = minidom.parseString(req.text)
     collection = dt.documentElement
     pods = collection.getElementsByTagName("pod")
-    print(pods)
+    #print(pods)
 
     image_url = ""
     facts = []
@@ -149,7 +149,7 @@ def process_person(input_string, options=["BasicInformation:PeopleData", "Image:
     family = {}
 
     for pod in pods:
-        print()
+        #print()
         # get basic info
         if(str(pod.getAttribute("title")) == "Basic information"):
             propstring = pod_to_plaintext(pod)
@@ -175,7 +175,7 @@ def process_person(input_string, options=["BasicInformation:PeopleData", "Image:
 
             for sub in subs:
                 propstring = sub.getElementsByTagName("plaintext")[0].firstChild.nodeValue
-                print(propstring)
+                #print(propstring)
                 members = [p.strip() for p in propstring.split('|')]
                 family[str(sub.getAttribute("title"))] = members
             
@@ -234,7 +234,7 @@ def process_animal(input_string, options=["ScientificName:SpeciesData", "Taxonom
 
                 i = (i+1) % 2
 
-            print(taxonomy)            
+            #print(taxonomy)            
 
 
     return {"scientific name" : scientific_name, "Taxonomy" : taxonomy, "biological properties" : biological_properties} 
