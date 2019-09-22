@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import xml.dom.minidom as minidom
+from flask_cors import CORS
 import requests, json
 import sys
 import summarize as anthony
@@ -7,7 +8,7 @@ import wikipedia_processing as komila
 import wolfpack as aaron
 
 app = Flask(__name__)
-
+CORS(app)
 # CONSTANTS
 animal = 'a'
 person = 'h'
@@ -24,11 +25,11 @@ def main():
     return render_template("index.html")
 
 def categorize_string(s):
-   
+
     url = aaron.build_request_url(s, ["Result"])
     #print(url)
 
-    req = requests.get(url) 
+    req = requests.get(url)
     #print(req.text)
 
     categories = {"Species" : animal, "Planet" : planet, "City" : 'c', "Person" : 'p'}
@@ -53,7 +54,7 @@ def categorize_string(s):
         if "::" in name:
             #print(name)
             return person
- 
+
     return None
 
 @app.route("/search_query", methods=["POST"])
@@ -74,7 +75,7 @@ def post_search_query():
 
     if category == animal:
         wolfram_data = aaron.process_animal(input_string)
-        summary = anthony.summarize_animals(wiki_data, wolfram_data) 
+        summary = anthony.summarize_animals(wiki_data, wolfram_data)
 
     elif category == person:
         wolfram_data = aaron.process_person(input_string)
@@ -84,7 +85,7 @@ def post_search_query():
         wolfram_data = aaron.process_planets(input_string)
         summary = anthony.summarize_planet(wiki_data, wolfram_data)
 
-    elif category == cities: 
+    elif category == cities:
         wolfram_data = aaron.process_cities(input_string)
         summary = anthony.summarize_cities(wiki_data, wolfram_data)
 
@@ -94,7 +95,7 @@ def post_search_query():
     if not summary["success"]:
         return json.encoder({"success" : False, "message" : "failure in summarize"} )
 
-    return summary 
+    return summary
 
 @app.route("/sample", methods=["POST"])
 def get_sample_query():
