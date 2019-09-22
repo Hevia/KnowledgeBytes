@@ -3,3 +3,4 @@ Wikipedia-API
 aylien-apiclient
 azure
 azure-cognitiveservices-language-textanalytics
+azure-cognitiveservices-vision-customvision
