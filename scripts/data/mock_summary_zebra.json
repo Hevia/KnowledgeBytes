@@ -1,11 +1,7 @@
 {
     "title": "Zebra",
-    "science_name": "The scientific name of Zebra is Humberto",
-    "classification": {
-        "Kingdom": "Animalia",
-        "Phylum": "Chordata",
-        "Class": "Mammalia"
-    },
+    "Taxonomy": [" Animalia (animals)", " Chordata (chordates)", " Mammalia (mammals)", " Carnivora (carnivores)", " Felidae (cats)", " Felis", " Felis catus (domestic cat)"], 
+    "scientific name": "Felis catus",
     "Biological_properties":{
         "lifespan": "The average lifespan of a Zebra is between 20 to 30 years",
         "Length": "The average weight of a Zebra is between 83 to 100 inches",
@@ -19,5 +15,6 @@
         "Grévy's zebra and the mountain zebra are endangered.",
         "While plains zebras are much more plentiful, one subspecies, the quagga, became extinct in the late 19th century – though there is currently a plan, called the Quagga Project, that aims to breed zebras that are phenotypically similar to the quagga in..."
     ],
-    "similar": "Similar topics to Zebra might include: aliens, UFOs, Area 51"
+    "similar": "Similar topics to Zebra might include: aliens, UFOs, Area 51",
+    "lifespan": "14 years"
 }

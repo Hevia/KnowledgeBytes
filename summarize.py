@@ -44,13 +44,6 @@ def summarize_animals(wiki_data, wolfram_data, language="en"):
 def summerize_cities(wiki_data, wolfram_data, language="en"):
     city_summary = {}
 
-    if not wolfram_data:
-        #city_summary["wolfram-success"] = True
-        pass
-    else:
-        #city_summary["wolfram-success"] = False
-        pass
-
     # Organize and grab the Wikipedia data + making sure the wikipedia data exists
     if wiki_data['exists']:
         city_summary['title'] = wiki_data['title']
@@ -62,6 +55,15 @@ def summerize_cities(wiki_data, wolfram_data, language="en"):
     else:
         #city_summary['wiki-success'] = False
         pass
+
+    if not wolfram_data:
+        city_summary["nickname"] = wolfram_data["nickname"] if checkKey(wolfram_data, "nickname") else ""
+        pass
+    else:
+        #city_summary["wolfram-success"] = False
+        pass
+
+    
 
    
     city_summary["success"] = True
@@ -99,11 +101,11 @@ def summarize_person(wiki_data, wolfram_data, language="en"):
 
     if not wolfram_data:
         person_summary["basic information"] = wolfram_data["image url"] if checkKey(wolfram_data, "image url") else ""
+        person_summary["facts"] = wolfram_data["facts"] if checkKey(wolfram_data, "facts") else ""
         pass
     else:
         #city_summary["wolfram-success"] = False
         pass
-
 
     if wiki_data['exists']:
         person_summary['title'] = wiki_data['title']
@@ -115,6 +117,7 @@ def summarize_person(wiki_data, wolfram_data, language="en"):
     else:
         #person_summary['wiki-success'] = False
         pass
-
+    
+    person_summary['success'] = True
     return person_summary
 
