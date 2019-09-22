@@ -38,6 +38,7 @@ def summarize_animals(wiki_data, wolfram_data, language="en"):
         pass
     
     animal_summary["success"] = True
+    print(animal_summary)
     return animal_summary
 
 
