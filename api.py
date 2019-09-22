@@ -33,20 +33,17 @@ def main():
     return render_template("index.html")
 
 def string_from_image(url_input):
-    predictor = CustomVisionPredictionClient(azure_cv_key, endpoint="https://eastus.api.cognitive.microsoft.com/")
+    print("here")
+    predictor = CustomVisionPredictionClient("89144960aa5c4fe695644634636d68de", endpoint="https://eastus.api.cognitive.microsoft.com/")
 
     image_response = requests.get(url_input, stream=True).raw
-    image = Image.open(image_response)
+   
+    results = predictor.classify_image_url(config["project_id"], "version0.2", url_input)
 
-    buf = io.BytesIO()
-    image.save(buf, format='JPEG')
-    image = buf.getvalue()
+    prediction = results.predictions[0]
+    print(prediction)
 
-    #print(config["project_id"])
-    results = predictor.classify_image(config["project_id"], "version0.2", image)
-
-    top_predictions = results.predictions[0]
-    return prediction.tag_name   
+    return prediction.tag_name.replace(' ', '+')
 
 def categorize_string(s):
 
@@ -84,9 +81,7 @@ def categorize_string(s):
 @app.route("/search_query", methods=["POST"])
 def post_search_query():
 
-    #input_string = request.json["query"]
-    #input_string = "http://www.pets4homes.co.uk/images/breeds/10/large/c231b08a94097d24fb0577b5bcff1d74.jpg"
-    input_string = "shark"
+    input_string = request.json["query"]
 
     # check if string is url
     if re.search("(?:http\:|https\:)?\/\/.*\.(?:png|jpg)", input_string):
@@ -98,6 +93,7 @@ def post_search_query():
 
     # get category
     category = categorize_string(input_string)
+    print(category)
 
     # get wiki data
     wiki_data = komila.create_maps(input_string)
@@ -119,12 +115,13 @@ def post_search_query():
         summary = anthony.summarize_cities(wiki_data, wolfram_data)
 
     else:
-        return json.encoder({"success" : False, "message" : "could not find category"})
+        return json.dumps({"success" : False, "message" : "could not find category"})
 
     if not summary["success"]:
-        return json.encoder({"success" : False, "message" : "failure in summarize"} )
+        return json.dumps({"success" : False, "message" : "failure in summarize"} )
 
-    return json.encoder(summary)
+    del summary["success"]
+    return json.dumps(summary)
 
 @app.route("/sample", methods=["POST"])
 def get_sample_query():
