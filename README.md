@@ -5,7 +5,7 @@ KnowledgeBytes is an open-source educational platform to learn anything!
 * Anthony Hevia
 * Aaron Hadley
 * Komila Khamidova
-* Dylan Ocha
+* Dylan Ochoa
 
 ### Setup
 
